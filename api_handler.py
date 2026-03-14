@@ -15,17 +15,18 @@ class APIHandler(BaseHTTPRequestHandler):
 
         username = data.get("username")
         password = data.get("password")
+        public_key=data.get("publicKey")
 
         if self.path == "/signup":
 
-            if self.auth_service.signup(username, password):
+            if self.auth_service.signup(username, password,public_key):
                 response = "user created"
             else:
                 response = "user already exists"
 
         elif self.path == "/login":
 
-            if self.auth_service.login(username, password):
+            if self.auth_service.login(username, password,public_key):
                 response = "accepted"
             else:
                 response = "rejected"
