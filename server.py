@@ -7,7 +7,7 @@ from api_handler import APIHandler
 db=Database()
 auth=AuthUser(db)
 APIHandler.auth_service=auth
-server = HTTPServer(("localhost",8000),APIHandler)
+server = HTTPServer(("0.0.0.0",8000),APIHandler)
 print("Server started...")
 server.serve_forever()
 
