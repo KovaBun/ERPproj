@@ -6,7 +6,7 @@ class Database:
        self.con=sl3.Connection("/home/venkat/Documents/AppDB") 
     def insertUser(self, username, password,public_key):
         try:
-            sql="insert into users(username,password) values(?,?,?)"
+            sql="insert into users(username,password,public_key) values(?,?,?)"
             self.con.execute(sql,(username,password,public_key))
             self.con.commit()
             return True
